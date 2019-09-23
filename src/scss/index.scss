@@ -1,0 +1,23 @@
+.foo {
+	display: flex;
+	color: #C55;
+  border: 0;
+	padding: 20px;
+	width: 240px;
+}
+
+@media screen and (min-width: 768px) {
+  .foo {
+    width: 576px;
+  }
+}
+
+.bar {
+  width: 160px;
+}
+
+@media screen and (min-width: 768px) {
+  .bar {
+    width: 384px;
+  }
+}
