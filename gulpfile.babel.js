@@ -2,6 +2,7 @@
 
 import gulp from 'gulp'
 import gulpEjs from 'gulp-ejs'
+import gulpRename from 'gulp-rename'
 import gulpReplace from 'gulp-replace'
 import gulpPlumber from 'gulp-plumber'
 import gulpSass from 'gulp-sass'
@@ -43,7 +44,8 @@ const compileHtml = (done) => {
 			`!${dirPaths.src}${dirPaths.ejs}${filePaths.ejs_}`
 		])
 		.pipe(gulpPlumber())
-		.pipe(gulpEjs({}, {}, {ext: '.html'}))
+		.pipe(gulpEjs())
+		.pipe(gulpRename({ extname: '.html' }))
 		.pipe(gulpReplace(/^[ \t]*\r?\n/gm, ''))
 		.pipe(gulp.dest(`${dirPaths.dist}${dirPaths.html}`))
 }
@@ -118,7 +120,7 @@ const compileImg = (done) => {
 
 gulp.task('compile',
   gulp.series(
-		gulp.parallel(compileHtml, compileCss, compileJs, compileImg),
+		gulp.parallel(compileHtml),
 		(done) => {
 			console.log('Compile success !!')
 			done()
