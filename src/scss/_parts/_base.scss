@@ -1,0 +1,12 @@
+.sans {
+  font-family: 'YakuHanJP', 'Noto Sans JP', sans-serif;
+}
+.serif {
+  font-family: 'YakuHanMP', 'Noto Serif JP', serif;
+}
+
+body {
+  @extend .serif;
+
+  font-size: 16px;
+}
