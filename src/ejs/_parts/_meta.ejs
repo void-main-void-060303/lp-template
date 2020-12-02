@@ -1,0 +1,20 @@
+<%
+const _title = ((typeof title === 'undefined') ? '' : title + ' | ') + config.siteInfo.title
+%>
+<meta charset="UTF-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title><%= _title %></title>
+<meta name="description" content="<%= config.siteInfo.description %>">
+<meta name="keywords" content="<%= config.siteInfo.keywords %>">
+<meta name="copyright" content="<%= config.siteInfo.copyright %>">
+
+<!-- OGP -->
+<meta property="og:title" content="<%= config.siteInfo.title %>">
+<meta property="og:description" content="<%= config.siteInfo.description%> ">
+<meta property="og:url" content="<%= config.siteInfo.root %>">
+<meta property="og:image" content="<%= config.siteInfo.ogp %>">
+<meta property="og:site_name" content="<%= config.siteInfo.title %>">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">

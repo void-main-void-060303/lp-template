@@ -1,19 +1,16 @@
+<%
+const distRoot = '.'
+include(distRoot + '/_config', { distRoot })
+%>
 <!DOCTYPE html>
 <html lang="ja">
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
-	<meta charset="UTF-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-	<title>lp-template</title>
-
-	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700|Noto+Serif+JP:400,700&display=swap&subset=japanese" rel="stylesheet">
-	<% const date = Date.now(); %>
-	<link rel="stylesheet" href="assets/css/index.css?v=<%= date %>">
+  <%- include('_parts/_meta', { config: config }) %>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700|Noto+Serif+JP:400,700&display=swap&subset=japanese" rel="stylesheet">
+  <link rel="stylesheet" href="<%= config.dir.css %>style.css?<%= config.timestamp %>">
 </head>
 <body>
 <%- include('_parts/_indexBody') %>
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/index.js?v=<%= date %>"></script>
+<script src="<%= config.dir.js %>app.js?<%= config.timestamp %>"></script>
 </body>
 </html>

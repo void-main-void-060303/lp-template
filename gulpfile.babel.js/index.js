@@ -1,15 +1,14 @@
-'use strict'
-
 import gulp from 'gulp'
-import cleaner from './task/cleaner'
-import ejsCompiler from './task/ejs-compiler'
-import scssCompiler from './task/scss-compiler'
-import jsCompiler from './task/js-compiler'
-import imgCompressor from './task/img-compressor'
-import assetsCopier from './task/assets-copier'
-import server from './task/server'
 
-const clean = gulp.series(
+import cleaner from './tasks/cleaner'
+import ejsCompiler from './tasks/ejs-compiler'
+import scssCompiler from './tasks/scss-compiler'
+import jsCompiler from './tasks/js-compiler'
+import imgCompressor from './tasks/img-compressor'
+import assetsCopier from './tasks/assets-copier'
+import server from './tasks/server'
+
+export const clean = gulp.series(
   cleaner.run,
   (done) => {
     console.log('Clean files.')
@@ -29,35 +28,35 @@ export const lint = gulp.series(
   }
 )
 
-const compile = gulp.series(
+export const compile = gulp.series(
   gulp.parallel(
     ejsCompiler.run,
     scssCompiler.run,
     jsCompiler.run,
     imgCompressor.run,
-    assetsCopier.run
   ),
+  assetsCopier.run,
   (done) => {
     console.log('Compile success !!!')
     done()
   }
 )
 
-const watch = gulp.series(
+export const watch = gulp.series(
   gulp.parallel(
     ejsCompiler.watch,
     scssCompiler.watch,
     jsCompiler.watch,
     imgCompressor.watch,
-    assetsCopier.watch
+    assetsCopier.watch,
   ),
   (done) => {
-    console.log('Watch files.')
+    console.log('Watching started.')
     done()
   }
 )
 
-export default gulp.series(
+export const dev = gulp.series(
   compile,
   server.serve,
   watch
