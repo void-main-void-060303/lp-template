@@ -15,7 +15,7 @@ const webpackConfig = {
     filename: "[name].js",
     path: DEST
   },
-  devtool: IS_PROD ? '' : 'source-map',
+  devtool: IS_PROD ? false : 'source-map',
   watch: false,
 }
 
