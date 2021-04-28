@@ -1,5 +1,4 @@
 # lp-template
-
 LP用テンプレート
 
 ## 概要
@@ -36,11 +35,11 @@ cp -R dist/* パブリッシュルートディレクトリ
 ## 使用技術
 - [node](https://nodejs.org/ja/)
 - [yarn](https://classic.yarnpkg.com/ja/)
+- [gulp](https://gulpjs.com/)
 - [ejs](https://ejs.co/)
 - scss
-- [gulp](https://gulpjs.com/)
-- [webpack](https://webpack.js.org/)
 - [ress.css](https://github.com/filipelinhares/ress)
+- [webpack](https://webpack.js.org/)
 - [jquery](https://jquery.com/)
 - [google fonts](https://fonts.google.com/selection?query=noto+sans&selection.family=Noto+Sans+JP:400,700|Noto+Serif+JP:400,700)
 - [yaku han jp](https://yakuhanjp.qranoko.jp/)
