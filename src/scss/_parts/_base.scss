@@ -1,12 +1,113 @@
-.sans {
-  font-family: 'YakuHanJP', 'Noto Sans JP', sans-serif;
-}
-.serif {
-  font-family: 'YakuHanMP', 'Noto Serif JP', serif;
+html {
+  // 基準サイズ（414pxで10pxになるように設定）
+  font-size: calc(100vw / 41.4);
+  letter-spacing: 0.05rem;
+  touch-action: manipulation;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 10px;
+  }
 }
 
 body {
-  @extend .serif;
+  @extend .sans;
 
-  font-size: 16px;
+  font-feature-settings: "palt" 1;
+  background-color: #222;
+  -ms-overflow-style: none;
+  -webkit-font-smoothing: antialiased;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &.fixed {
+    overflow: hidden;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input,
+button {
+  outline: 0;
+}
+
+// IEで改行されない問題対応
+br::before {
+  font-family: serif;
+  white-space: pre;
+  content: "\A";
+}
+
+// 汎用クラス
+.hideDisplay {
+  display: none !important;
+}
+
+.hideVisibility {
+  visibility: hidden;
+}
+
+.hideOpacity {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.hoverText {
+  transition: 0.3s;
+
+  &:active {
+    color: #e60516;
+  }
+  @media screen and (min-width: 1024px) {
+    &:hover {
+      color: #e60516;
+    }
+  }
+}
+
+.hoverImage {
+  transition: 0.3s;
+
+  &:active {
+    transform: scale(1.1);
+  }
+  @media screen and (min-width: 1024px) {
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.hoverButton {
+  transition: 0.3s;
+
+  &:active {
+    filter: invert(20%);
+  }
+  @media screen and (min-width: 1024px) {
+    &:hover {
+      filter: invert(20%);
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .pc {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sp {
+    display: none !important;
+  }
 }

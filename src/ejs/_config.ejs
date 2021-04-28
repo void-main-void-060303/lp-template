@@ -1,29 +1,33 @@
 <%
-const getConfig = (distRoot) => {
+const getConfig = () => {
   const timestamp = Date.now()
-  const assetsDir = distRoot + path.dir.distAssets
+  const publishRoot = path.dir.project
+  const assetsDir = publishRoot + path.dir.distAssets
   const dir = {
-    root: distRoot,
+    root: `${publishRoot}/`,
     css: `${assetsDir + path.dir.css}/`,
     js: `${assetsDir + path.dir.js}/`,
-    img: `${assetsDir + path.dir.img}/`,
+    img: `${assetsDir + path.dir.img}/`
   }
 
-  const siteInfo = {
-    root: 'https://hogehoge/',
-    title: 'lp-template',
-    description: 'LP用テンプレート',
-    keywords: 'LP,テンプレート',
-    copyright: '(C) 2019 enbu060303',
-    ogp: ''
+  const domain = 'https://hogehoge.hoge'
+
+  const site = {
+    root: `${domain + publishRoot}/`,
+    title: 'タイトル',
+    description: '説明',
+    keywords: 'キーワード',
+    copyright: 'コピーライト',
+    ogp: `${domain + dir.img}ogp.png`,
+    ogpDescription: 'OGP説明',
   }
 
   return {
     isProduction,
     timestamp,
     dir,
-    siteInfo,
+    site
   }
 }
-config = getConfig(distRoot)
+config = getConfig()
 %>

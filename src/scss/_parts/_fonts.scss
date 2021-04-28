@@ -1,23 +1,31 @@
 @font-face {
-  font-family: 'YakuHanJP';
+  font-family: "YakuHanJP";
   font-weight: normal;
-  src: url('../font/YakuHanJP-Regular.woff2') format('woff2'), url('../font/YakuHanJP-Regular.woff') format('woff');
+  src: url("../font/YakuHanJP-Regular.woff2") format("woff2"), url("../font/YakuHanJP-Regular.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'YakuHanJP';
+  font-family: "YakuHanJP";
   font-weight: bold;
-  src: url('../font/YakuHanJP-Bold.woff2') format('woff2'), url('../font/YakuHanJP-Bold.woff') format('woff');
+  src: url("../font/YakuHanJP-Bold.woff2") format("woff2"), url("../font/YakuHanJP-Bold.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'YakuHanMP';
+  font-family: "YakuHanMP";
   font-weight: normal;
-  src: url('../font/YakuHanMP-Regular.woff2') format('woff2'), url('../font/YakuHanMP-Regular.woff') format('woff');
+  src: url("../font/YakuHanMP-Regular.woff2") format("woff2"), url("../font/YakuHanMP-Regular.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'YakuHanMP';
+  font-family: "YakuHanMP";
   font-weight: bold;
-  src: url('../font/YakuHanMP-Bold.woff2') format('woff2'), url('../font/YakuHanMP-Bold.woff') format('woff');
+  src: url("../font/YakuHanMP-Bold.woff2") format("woff2"), url("../font/YakuHanMP-Bold.woff") format("woff");
+}
+
+.sans {
+  font-family: "YakuHanJP", "Noto Sans JP", sans-serif;
+}
+
+.serif {
+  font-family: "YakuHanMP", "Noto Serif JP", serif;
 }

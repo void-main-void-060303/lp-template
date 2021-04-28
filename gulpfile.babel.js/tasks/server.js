@@ -15,7 +15,11 @@ function serve(cb) {
   server.init({
     server: {
       baseDir: config.path.distDir
-    }
+    },
+    port: 3000,
+    open: false,
+    //ghostMode: false
+
   })
   return cb()
 }

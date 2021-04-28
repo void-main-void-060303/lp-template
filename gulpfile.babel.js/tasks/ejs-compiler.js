@@ -24,9 +24,9 @@ function run() {
   if (config.isProduction) {
     result = result.pipe(gulHtmlmin({
       // 余白除去
-      collapseWhitespace : true,
+      collapseWhitespace: true,
       // コメント除去
-      removeComments : true
+      removeComments: true
     }))
   }
   // 出力

@@ -1,4 +1,5 @@
 import gulp from 'gulp'
+import gulpChanged from 'gulp-changed'
 import gulpImagemin from 'gulp-imagemin'
 
 import config from '~/config'
@@ -10,33 +11,34 @@ function run() {
   let result = gulp.src(
     [
       config.path.img.src
-    ],
-    {
-      // 前回実行時以降に更新されたファイルが対象
-      since: gulp.lastRun(run)
-    }
+    ]
   )
+  result = result.pipe(gulpChanged(config.path.img.dest))
   result = result.pipe(gulpImagemin(
     [
       gulpImagemin.gifsicle({
         interlaced: false,
         optimizationLevel: 3,
-        colors: 180,
+        colors: 180
       }),
       gulpImagemin.mozjpeg({
         quality: 80,
-        progressive: true,
+        progressive: true
       }),
       gulpImagemin.optipng({
-        quality: [0.65, 0.80],
+        quality: [ 0.65, 0.80 ],
         speed: 1,
         dithering: 1,
-        strip: true,
+        strip: true
       }),
       gulpImagemin.svgo({
         plugins: [
-          { removeViewBox: true },
-          { cleanupIDs: false },
+          {
+            removeViewBox: true
+          },
+          {
+            cleanupIDs: false
+          }
         ]
       })
     ],

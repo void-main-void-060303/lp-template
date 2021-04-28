@@ -33,7 +33,7 @@ export const compile = gulp.series(
     ejsCompiler.run,
     scssCompiler.run,
     jsCompiler.run,
-    imgCompressor.run,
+    imgCompressor.run
   ),
   assetsCopier.run,
   (done) => {
@@ -48,7 +48,7 @@ export const watch = gulp.series(
     scssCompiler.watch,
     jsCompiler.watch,
     imgCompressor.watch,
-    assetsCopier.watch,
+    assetsCopier.watch
   ),
   (done) => {
     console.log('Watching started.')

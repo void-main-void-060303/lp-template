@@ -3,7 +3,7 @@ import gulp from 'gulp'
 function run(targets, tasks) {
   gulp.watch(
     targets,
-    tasks,
+    tasks
   )
     .on('add', (path) => {
       console.log(`File ${path} was added`)
@@ -17,5 +17,5 @@ function run(targets, tasks) {
 }
 
 export default {
-  run,
+  run
 }

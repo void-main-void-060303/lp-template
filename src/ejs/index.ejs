@@ -1,16 +1,19 @@
 <%
-const distRoot = '.'
-include(distRoot + '/_config', { distRoot })
+const ejsRoot = '.'
+include(ejsRoot + '/_config')
 %>
 <!DOCTYPE html>
 <html lang="ja">
-<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
-  <%- include('_parts/_meta', { config: config }) %>
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700|Noto+Serif+JP:400,700&display=swap&subset=japanese" rel="stylesheet">
-  <link rel="stylesheet" href="<%= config.dir.css %>style.css?<%= config.timestamp %>">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+  <%- include(ejsRoot + '/_parts/_meta', { config }) %>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700|Noto+Serif+JP:400,700&display=swap&subset=japanese">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <link rel="stylesheet" href="<%= config.dir.css %>app.css?<%= config.timestamp %>">
 </head>
 <body>
-<%- include('_parts/_indexBody') %>
-<script src="<%= config.dir.js %>app.js?<%= config.timestamp %>"></script>
+
+<%- include(ejsRoot + '/_parts/_indexBody', { config }) %>
+
+<script async src="<%= config.dir.js %>app.js?<%= config.timestamp %>"></script>
 </body>
 </html>

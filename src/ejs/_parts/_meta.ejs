@@ -1,20 +1,20 @@
 <%
-const _title = ((typeof title === 'undefined') ? '' : title + ' | ') + config.siteInfo.title
+const _title = ((typeof title === 'undefined') ? '' : title + ' | ') + config.site.title
 %>
 <meta charset="UTF-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title><%= _title %></title>
-<meta name="description" content="<%= config.siteInfo.description %>">
-<meta name="keywords" content="<%= config.siteInfo.keywords %>">
-<meta name="copyright" content="<%= config.siteInfo.copyright %>">
+<meta name="description" content="<%= config.site.description %>">
+<meta name="keywords" content="<%= config.site.keywords %>">
+<meta name="copyright" content="<%= config.site.copyright %>">
 
 <!-- OGP -->
-<meta property="og:title" content="<%= config.siteInfo.title %>">
-<meta property="og:description" content="<%= config.siteInfo.description%> ">
-<meta property="og:url" content="<%= config.siteInfo.root %>">
-<meta property="og:image" content="<%= config.siteInfo.ogp %>">
-<meta property="og:site_name" content="<%= config.siteInfo.title %>">
+<meta property="og:title" content="<%= config.site.title %>">
+<meta property="og:description" content="<%= config.site.ogpDescription %> ">
+<meta property="og:url" content="<%= config.site.root %>">
+<meta property="og:image" content="<%= config.site.ogp %>">
+<meta property="og:site_name" content="<%= config.site.title %>">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">

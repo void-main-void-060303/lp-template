@@ -1,0 +1,33 @@
+@mixin background-image($imagePath, $extension: "png") {
+  background-image: url($imagePath + "." + $extension);
+  @media screen and (min-resolution: 2dppx) {
+    background-image: url($imagePath + "@2x." + $extension);
+  }
+}
+
+@mixin before-background-image($imagePath, $w, $h, $extension: "png") {
+  &::before {
+    @include background-image($imagePath, $extension);
+
+    padding-top: $h / $w * 100%;
+  }
+}
+
+@mixin video($w: 1920, $h: 1080) {
+  & {
+    position: relative;
+    width: 100%;
+  }
+  &::before {
+    display: block;
+    padding-top: $h / $w * 100%;
+    content: "";
+  }
+  & > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -19,7 +19,7 @@ function run() {
   let result = gulp.src(
     [
       config.path.scss.src,
-      `!${config.path.scss._src}`,
+      `!${config.path.scss._src}`
     ],
     {
       sourcemaps: !config.isProduction
@@ -36,7 +36,7 @@ function run() {
         extensions: ['.scss', '.css']
       })
     })
-    // エラー検知
+      // エラー検知
       .on('error', gulpSass.logError)
   )
   // CSS処理
@@ -45,23 +45,23 @@ function run() {
     cssMqpacker,
     // ソート
     cssDeclarationSorter({
-      order: 'smacss',
+      order: 'smacss'
     }),
     // 画像処理
     postcssAssets,
     // ベンダープレフィックス追加
-    autoprefixer(),
+    autoprefixer()
   ]))
   if (config.isProduction) {
     result = result.pipe(gulpPostcss([
       // 圧縮
       cssnano({
-        autoprefixer: false,
-      }),
+        autoprefixer: false
+      })
     ]))
   }
   return result.pipe(gulp.dest(config.path.scss.dest, {
-    sourcemaps: !config.isProduction ? '.' : false,
+    sourcemaps: !config.isProduction ? '.' : false
   }))
 }
 
@@ -69,7 +69,7 @@ function lint() {
   console.log('scss-compiler.lint')
   return gulp.src(
     [
-      config.path.scss.src,
+      config.path.scss.src
     ],
     {
       // 前回実行時以降に更新されたファイルが対象
@@ -81,19 +81,18 @@ function lint() {
       failAfterError: config.isProduction,
       reporters: [{
         formatter: 'verbose',
-        console: true,
+        console: true
       }],
       syntax: 'scss',
-      fix: true,
+      fix: true
     }))
-    .pipe(gulp.dest(config.path.scss.dest))
 }
 
 function watch(cb) {
   console.log('scss-compiler.watch')
   watcher.run(
     [
-      config.path.scss.src,
+      config.path.scss.src
     ],
     gulp.series(lint, run, server.reload)
   )

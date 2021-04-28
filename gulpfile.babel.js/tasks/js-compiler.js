@@ -37,7 +37,7 @@ function watch(cb) {
   console.log('js-compiler.watch')
   watcher.run(
     [
-      config.path.js.src,
+      config.path.js.src
     ],
     gulp.series(lint, run, server.reload)
   )
