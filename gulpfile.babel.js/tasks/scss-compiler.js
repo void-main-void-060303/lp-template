@@ -83,7 +83,7 @@ function lint() {
         formatter: 'verbose',
         console: true
       }],
-      syntax: 'scss',
+      // customSyntax: 'postcss-scss',
       fix: true
     }))
 }
