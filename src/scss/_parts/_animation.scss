@@ -1,52 +1,62 @@
-@keyframes fadeInAnimeBottom {
+@keyframes fade-in-anime-bottom {
   0% {
     transform: translate3d(0, 10rem, 0);
   }
+
   40% {
     transform: translate3d(0, -5rem, 0);
   }
+
   70% {
     transform: translate3d(0, 3rem, 0);
   }
+
   90% {
     transform: translate3d(0, -1rem, 0);
   }
+
   100% {
     transform: translate3d(0, 0, 0);
   }
 }
 
-.fadeIn1 {
+%fade-in-1 {
   pointer-events: none;
   transition: 0.3s;
 
-  &.show {
+  &-show {
     pointer-events: auto;
     transform: translate3d(0, 0, 0);
   }
+}
+
+.fade-in-1 {
   &__navigation {
-    @extend .fadeIn1;
+    @extend %fade-in-1;
 
     transform: translate3d(0, -100vh, 0);
 
     &.show {
-      @extend .fadeIn1.show;
+      @extend %fade-in-1-show;
     }
   }
+
   &__ticket {
-    @extend .fadeIn1;
+    @extend %fade-in-1;
 
     transform: translate3d(100vw, 0, 0);
 
     @media screen and (min-width: 1024px) {
       transform: translate3d(0, 100vh, 0);
     }
+
     &.show {
-      @extend .fadeIn1.show;
+      @extend %fade-in-1-show;
     }
   }
+
   &__share {
-    @extend .fadeIn1;
+    @extend %fade-in-1;
 
     transform: translate3d(0, 100vh, 0);
 
@@ -55,25 +65,28 @@
     }
 
     &.show {
-      @extend .fadeIn1.show;
+      @extend %fade-in-1-show;
     }
   }
 }
 
-.fadeIn2 {
+%fade-in-2 {
   pointer-events: none;
   transition: 0.3s;
 
-  &.show {
+  &-show {
     pointer-events: auto;
   }
+}
+
+.fade-in-2 {
   &__bottom {
-    @extend .fadeIn2;
+    @extend %fade-in-2;
 
     &.show {
-      @extend .fadeIn2.show;
+      @extend %fade-in-2-show;
 
-      animation: fadeInAnimeBottom 0.5s linear;
+      animation: fade-in-anime-bottom 0.5s linear;
     }
   }
 }
