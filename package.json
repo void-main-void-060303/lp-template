@@ -42,6 +42,7 @@
     "postcss-assets": "^6.0.0",
     "postcss-scss": "^4.0.3",
     "prettier": "^2.6.2",
+    "sass": "^1.49.11",
     "stylelint": "^14.6.1",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recess-order": "^3.0.0",
