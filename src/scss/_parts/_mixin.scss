@@ -1,6 +1,7 @@
 @mixin background-image($imagePath, $extension: "png") {
   background-image: url($imagePath + "." + $extension);
   @media screen and (min-resolution: 2dppx) {
+    /* stylelint-disable-next-line function-url-quotes */
     background-image: url($imagePath + "@2x." + $extension);
   }
 }
@@ -18,11 +19,13 @@
     position: relative;
     width: 100%;
   }
+
   &::before {
     display: block;
     padding-top: $h / $w * 100%;
     content: "";
   }
+
   & > iframe {
     position: absolute;
     top: 0;

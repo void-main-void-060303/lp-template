@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  @extend .sans;
+  @extend %sans;
 
   font-feature-settings: "palt" 1;
   background-color: #222;
@@ -44,15 +44,15 @@ br::before {
 }
 
 // 汎用クラス
-.hideDisplay {
+.hide-display {
   display: none !important;
 }
 
-.hideVisibility {
+.hide-visibility {
   visibility: hidden;
 }
 
-.hideOpacity {
+.hide-opacity {
   pointer-events: none;
   opacity: 0;
 }
@@ -62,7 +62,7 @@ br::before {
   opacity: 0.5;
 }
 
-.hoverText {
+.hover-text {
   transition: 0.3s;
 
   &:active {
@@ -75,7 +75,7 @@ br::before {
   }
 }
 
-.hoverImage {
+.hover-image {
   transition: 0.3s;
 
   &:active {
@@ -88,7 +88,7 @@ br::before {
   }
 }
 
-.hoverButton {
+.hover-button {
   transition: 0.3s;
 
   &:active {

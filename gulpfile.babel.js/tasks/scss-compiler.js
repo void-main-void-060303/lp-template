@@ -1,5 +1,6 @@
 import gulp from 'gulp'
 import gulpPlumber from 'gulp-plumber'
+import sass from 'sass'
 import gulpSass from 'gulp-sass'
 import nodeSassPackageImporter from 'node-sass-package-importer'
 import gulpPostcss from 'gulp-postcss'
@@ -13,6 +14,8 @@ import gulpStylelint from 'gulp-stylelint'
 import config from '~/config'
 import server from './server'
 import watcher from './watcher'
+
+const gulpSassInstance = gulpSass(sass)
 
 function run() {
   console.log('scss-compiler.run')
@@ -28,7 +31,7 @@ function run() {
   // エラー検知
   result = result.pipe(gulpPlumber())
   // コンパイル
-  result = result.pipe(gulpSass({
+  result = result.pipe(gulpSassInstance({
       // 標準形式で出力 [expanded, nested, compact, compressed]
       outputStyle: 'expanded',
       // import補助
@@ -37,7 +40,7 @@ function run() {
       })
     })
       // エラー検知
-      .on('error', gulpSass.logError)
+      .on('error', gulpSassInstance.logError)
   )
   // CSS処理
   result = result.pipe(gulpPostcss([
@@ -83,7 +86,7 @@ function lint() {
         formatter: 'verbose',
         console: true
       }],
-      syntax: 'scss',
+      // customSyntax: 'postcss-scss',
       fix: true
     }))
 }
